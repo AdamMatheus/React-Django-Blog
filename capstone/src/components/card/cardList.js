@@ -24,9 +24,9 @@ function CardList({ hasNext, loadMore, postList }) {
   const classes = useStyles();
   return (
     <>
-      <Grid container className={classes.root} spacing={5} justify="center">
+      <Grid container className={classes.root} spacing={5} justifyContent="center">
         <Grid item xs={9}>
-          <Grid container justify="center" spacing={5}>
+          <Grid container justifyContent="center" spacing={5}>
             {postList
               ? postList.map((item, id) => (
                   <Grid key={id} item>

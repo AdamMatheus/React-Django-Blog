@@ -18,13 +18,15 @@ export const MainRouter = () => {
       <Suspense fallback="">
         <Navbar />
         <Routes>
-          <Route path="/login" component={LoginPage} exact />
-          <Route path="/register" component={RegisterPage} exact />
-          <Route path="/" component={HomePage} exact />
-          <PrivateRouter exact path="/detail/:slug" component={PostDetail} />
-          <PrivateRouter exact path="/profile" component={ProfilePage} />
-          <PrivateRouter exact path="/create" component={CustomPostPage} />
-          <PrivateRouter exact path="/edit/:slug" component={CustomPostPage} />
+          <Route path="/login" element={<LoginPage/>} />
+          <Route path="/register" element={<RegisterPage/>} />
+          <Route path="/" element={<HomePage/>}  />
+            <Route element={<PrivateRouter/>}>
+                <Route  path="/detail/:slug" element={<PostDetail/>} />
+                <Route  path="/profile" element={<ProfilePage/>} />
+                <Route  path="/create" element={<CustomPostPage/>} />
+                <Route  path="/edit/:slug" element={<CustomPostPage/>} />
+            </Route>
         </Routes>
       </Suspense>
     </BrowserRouter>
